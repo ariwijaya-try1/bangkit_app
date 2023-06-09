@@ -58,7 +58,11 @@
 								if(!empty($action->image_url))
 								{
 									?><img src="<?php echo $action->image_url; ?>" alt="<?php echo $action->label?>" /><?php 	
-								}
+								}else{
+                                                                    	
+									echo $action->label;
+                                                                }
+                                                                
 							?></a>		
 					<?php }
 					}

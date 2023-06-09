@@ -15,6 +15,7 @@
                 <script src="<?php echo $file; ?>"></script>
             <?php endforeach; ?>
         </div>
+        <?php if (isset($data['go_back'])) echo $data['go_back']; ?>
         <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
 </section>
