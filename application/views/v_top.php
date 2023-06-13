@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Nama Aplikasi | <?php echo $data['page_title']; ?></title>
+        <title>NilaiPlus | <?php echo $data['page_title']; ?></title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Font Awesome -->
@@ -61,7 +61,7 @@
                             <img src="<?= base_url('assets'); ?>/vendor/AdminLTE-3.0.5/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block">Nama Admin</a>
+                            <a href="#" class="d-block">Admin</a>
                         </div>
                     </div>
 
