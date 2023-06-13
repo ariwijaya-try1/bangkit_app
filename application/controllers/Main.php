@@ -10,6 +10,7 @@ class Main extends CI_Controller {
         $this->load->database();
         $this->load->helper('url');
         $this->load->library('grocery_CRUD');
+        $this->load->library('ion_auth');
     }
 
     public function _example_output($output = null) {
@@ -23,6 +24,9 @@ class Main extends CI_Controller {
 //    }
 
     public function personel() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        }
         $crud = new grocery_CRUD();
         $crud->set_table('personel');
         $crud->set_relation('id_identitas', 'identitas', 'nama_identitas');
@@ -37,6 +41,9 @@ class Main extends CI_Controller {
     }
 
     public function siswa() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('siswa');
         $crud->set_relation('id_wali', 'wali', 'nama_wali');
@@ -50,6 +57,9 @@ class Main extends CI_Controller {
     }
 
     public function rombel() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('rombel');
         $crud->columns(
@@ -94,6 +104,9 @@ class Main extends CI_Controller {
         $result = $query->row();
 //        print_r($result->kode_rombel) ;
 
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
 //        $crud->set_table('detail_rombel');//arahkan ke nilai_siswa karena sama + nilai
         $crud->set_table('nilai_siswa');
@@ -133,6 +146,9 @@ class Main extends CI_Controller {
     }
 
     public function wali() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('wali');
 
@@ -146,6 +162,9 @@ class Main extends CI_Controller {
     }
 
     public function nilai() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('nilai');
         $crud->set_relation('id_siswa', 'siswa', 'nama_siswa');
@@ -163,6 +182,9 @@ class Main extends CI_Controller {
     }
 
     public function daftar_rombel() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('rombel');
         $crud->columns(
@@ -206,6 +228,9 @@ class Main extends CI_Controller {
         $query = $this->db->get('rombel');
         $result = $query->row();
 
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->unset_add();
         $crud->set_table('nilai_siswa');
@@ -323,7 +348,7 @@ class Main extends CI_Controller {
 
     function insert() {
         for ($x = 1; $x <= 101; $x++) {
-            $sql = "INSERT INTO nilai_siswa ( id_siswa )VALUES(".$x.")";
+            $sql = "INSERT INTO nilai_siswa ( id_siswa )VALUES(" . $x . ")";
             $query = $this->db->query($sql);
         }
     }

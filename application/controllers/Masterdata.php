@@ -10,6 +10,7 @@ class Masterdata extends CI_Controller {
         $this->load->database();
         $this->load->helper('url');
         $this->load->library('grocery_CRUD');
+        $this->load->library('ion_auth');
     }
 
     public function _example_output($output = null) {
@@ -23,7 +24,9 @@ class Masterdata extends CI_Controller {
     }
 
     public function jabatan() {
-        $crud = new grocery_CRUD();
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } $crud = new grocery_CRUD();
         $crud->set_table('jabatan');
         $crud->unset_clone();
         $output = $crud->render();
@@ -35,6 +38,10 @@ class Masterdata extends CI_Controller {
     }
 
     public function identitas() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        }
+
         $crud = new grocery_CRUD();
         $crud->set_table('identitas');
         $crud->unset_clone();
@@ -47,6 +54,10 @@ class Masterdata extends CI_Controller {
     }
 
     public function mapel() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
+        
         $crud = new grocery_CRUD();
         $crud->set_table('mapel');
 
@@ -60,6 +71,10 @@ class Masterdata extends CI_Controller {
     }
 
     public function kelas() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
+        
         $crud = new grocery_CRUD();
         $crud->set_table('kelas');
 
