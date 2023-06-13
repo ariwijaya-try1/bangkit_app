@@ -24,9 +24,9 @@ class Main extends CI_Controller {
 //    }
 
     public function personel() {
-//        if (!$this->ion_auth->logged_in()) {
-//            redirect('auth/login');
-//        }
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        }
         $crud = new grocery_CRUD();
         $crud->set_table('personel');
         $crud->set_relation('id_identitas', 'identitas', 'nama_identitas');
@@ -41,9 +41,9 @@ class Main extends CI_Controller {
     }
 
     public function siswa() {
-//        if (!$this->ion_auth->logged_in()) {
-//            redirect('auth/login');
-//        } 
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('siswa');
         $crud->set_relation('id_wali', 'wali', 'nama_wali');
@@ -57,9 +57,9 @@ class Main extends CI_Controller {
     }
 
     public function rombel() {
-//        if (!$this->ion_auth->logged_in()) {
-//            redirect('auth/login');
-//        } 
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('rombel');
         $crud->columns(
@@ -146,9 +146,9 @@ class Main extends CI_Controller {
     }
 
     public function wali() {
-//        if (!$this->ion_auth->logged_in()) {
-//            redirect('auth/login');
-//        } 
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('wali');
 
@@ -162,9 +162,9 @@ class Main extends CI_Controller {
     }
 
     public function nilai() {
-//        if (!$this->ion_auth->logged_in()) {
-//            redirect('auth/login');
-//        } 
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('nilai');
         $crud->set_relation('id_siswa', 'siswa', 'nama_siswa');
@@ -182,9 +182,9 @@ class Main extends CI_Controller {
     }
 
     public function daftar_rombel() {
-//        if (!$this->ion_auth->logged_in()) {
-//            redirect('auth/login');
-//        } 
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        } 
         $crud = new grocery_CRUD();
         $crud->set_table('rombel');
         $crud->columns(
